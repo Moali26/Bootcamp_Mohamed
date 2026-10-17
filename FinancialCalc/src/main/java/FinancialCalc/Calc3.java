@@ -27,5 +27,7 @@ public class Calc3 {
 
         System.out.printf("presentValue:%.2f%n",presentValue);
 
+        scanner.close();
+
     }
 }

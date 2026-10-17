@@ -29,7 +29,8 @@ public class Calc2 {
             System.out.printf("futureValue:%.2f%n",futureValue);
 
 
-
+            scanner.close();
         }
 }
+
  // FV = P(1 + r/n)^(n*t)
