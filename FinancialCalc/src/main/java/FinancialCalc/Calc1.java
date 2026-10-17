@@ -7,7 +7,7 @@ public class Calc1 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You are in calc 1");
 
-        System.out.println("----Mortgage Calculator----");
+        System.out.println("----Calculator 1----");
 
         System.out.println("How much is monthly Principal (Round to the nearest dollar)");
         double p = scanner.nextDouble();
