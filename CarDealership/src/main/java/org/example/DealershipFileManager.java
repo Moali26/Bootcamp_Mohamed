@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 public class DealershipFileManager {
-    public Dealership getDealerShip() throws IOException {
-        FileReader fileReader = new FileReader("inventory.csv");
+    public Dealership getDealership() throws IOException {
+        FileReader fileReader = new FileReader("src/main/resources/inventory.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line = bufferedReader.readLine();
         String[] parts = line.split("\\|");
