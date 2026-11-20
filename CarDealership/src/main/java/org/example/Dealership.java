@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.math.BigDecimal;
 
 public class Dealership {
     private String name;
@@ -45,26 +46,77 @@ public class Dealership {
     public ArrayList<Vehicle> getAllVehicles(){
         return inventory;
     }
-    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null;
-    }
-    public ArrayList<Vehicle> getVehiclesByMakeModel(String make ,String model){
-        return null;
-    }
-    public  ArrayList<Vehicle> getVehiclesByYear(int min,int max){
-        return null;
-    }
-    public ArrayList<Vehicle> getVehiclesByColor(String color) {
-      return null;
-    }
-    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
-    }
-    public ArrayList<Vehicle> getVehiclesByType(String vehicleType){
-        return null;
-    }
-    public void removeVehicle(Vehicle vehicle){
 
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice().compareTo(java.math.BigDecimal.valueOf(min)) >= 0
+                    && vehicle.getPrice().compareTo(java.math.BigDecimal.valueOf(max)) <= 0) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().toLowerCase().contains(make.trim().toLowerCase())
+                    && vehicle.getModel().toLowerCase().contains(model.trim().toLowerCase())) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(color.trim())) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType.trim())) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+        inventory.remove(vehicle);
     }
 
 }
